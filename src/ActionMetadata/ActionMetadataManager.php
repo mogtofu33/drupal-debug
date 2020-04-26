@@ -24,6 +24,7 @@ use Ekino\Drupal\Debug\Action\DisplayPrettyExceptions\DisplayPrettyExceptionsAct
 use Ekino\Drupal\Debug\Action\DisplayPrettyExceptions\DisplayPrettyExceptionsOptions;
 use Ekino\Drupal\Debug\Action\DisplayPrettyExceptionsASAP\DisplayPrettyExceptionsASAPAction;
 use Ekino\Drupal\Debug\Action\DisplayPrettyExceptionsASAP\DisplayPrettyExceptionsASAPOptions;
+use Ekino\Drupal\Debug\Action\EnableDebugCacheabilityHeader\EnableDebugCacheabilityHeaderAction;
 use Ekino\Drupal\Debug\Action\EnableDebugClassLoader\EnableDebugClassLoaderAction;
 use Ekino\Drupal\Debug\Action\EnableTwigDebug\EnableTwigDebugAction;
 use Ekino\Drupal\Debug\Action\EnableTwigStrictVariables\EnableTwigStrictVariablesAction;
@@ -89,6 +90,11 @@ class ActionMetadataManager
             array(
                 DisplayPrettyExceptionsASAPOptions::class,
             ),
+        ),
+        'enable_debug_cacheability_header' => array(
+            ActionMetadata::class,
+            EnableDebugCacheabilityHeaderAction::class,
+            array(),
         ),
         'enable_debug_class_loader' => array(
             ActionMetadata::class,

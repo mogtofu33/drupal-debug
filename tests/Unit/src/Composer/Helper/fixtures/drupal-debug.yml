@@ -34,6 +34,8 @@ drupal-debug:
             enabled: true
             charset: null
             file_link_format: null
+        enable_debug_cacheability_header:
+            enabled: true
         enable_debug_class_loader:
             enabled: true
         enable_twig_debug:
