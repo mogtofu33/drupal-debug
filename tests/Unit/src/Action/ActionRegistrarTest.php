@@ -23,6 +23,7 @@ use Ekino\Drupal\Debug\Action\DisableTwigCache\DisableTwigCacheAction;
 use Ekino\Drupal\Debug\Action\DisplayDumpLocation\DisplayDumpLocationAction;
 use Ekino\Drupal\Debug\Action\DisplayPrettyExceptions\DisplayPrettyExceptionsAction;
 use Ekino\Drupal\Debug\Action\DisplayPrettyExceptionsASAP\DisplayPrettyExceptionsASAPAction;
+use Ekino\Drupal\Debug\Action\EnableDebugCacheabilityHeader\EnableDebugCacheabilityHeaderAction;
 use Ekino\Drupal\Debug\Action\EnableDebugClassLoader\EnableDebugClassLoaderAction;
 use Ekino\Drupal\Debug\Action\EnableTwigDebug\EnableTwigDebugAction;
 use Ekino\Drupal\Debug\Action\EnableTwigStrictVariables\EnableTwigStrictVariablesAction;
@@ -122,11 +123,12 @@ final class ActionRegistrarTest extends TestCase
     {
         $containerBuilder = $this->createMock(ContainerBuilder::class);
         $containerBuilder
-            ->expects($this->exactly(5))
+            ->expects($this->exactly(6))
             ->method('addCompilerPass')
             ->withConsecutive(
                 array($this->isInstanceOf(DisableTwigCacheAction::class)),
                 array($this->isInstanceOf(DisplayPrettyExceptionsAction::class)),
+                array($this->isInstanceOf(EnableDebugCacheabilityHeaderAction::class)),
                 array($this->isInstanceOf(EnableTwigDebugAction::class)),
                 array($this->isInstanceOf(EnableTwigStrictVariablesAction::class)),
                 array($this->isInstanceOf(WatchModulesHooksImplementationsAction::class))
